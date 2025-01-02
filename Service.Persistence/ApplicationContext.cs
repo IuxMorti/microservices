@@ -7,6 +7,7 @@ public class ApplicationContext : DbContext
 {
     public DbSet<BuyerModel> Buyers { get; set; }
     public DbSet<OrderModel> Order { get; set; }
+    public DbSet<NotificationStatusModel> Statuses { get; set; }
     
     public ApplicationContext(DbContextOptions options) : base(options)
     {

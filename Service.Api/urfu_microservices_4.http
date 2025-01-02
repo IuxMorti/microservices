@@ -1,6 +1,0 @@
-@urfu_microservices_4_HostAddress = http://localhost:5281
-
-GET {{urfu_microservices_4_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
