@@ -3,7 +3,8 @@
 namespace Service.Application;
 
 public record MessageDto(string ChannelType,
-    string ContactInformation,
-    string Message,
+    string Recipient,
+    string ContentType,
+    string ContentData,
     Guid BuyerId,
     Guid OrderId);
