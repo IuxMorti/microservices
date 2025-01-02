@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Persistence", "Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Domain", "Service.Domain\Service.Domain.csproj", "{1F45F213-8F3A-46BC-8AAD-E8FE85EFB0AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Notification.SmsConsumer", "Service.Notification.SmsConsumer\Service.Notification.SmsConsumer.csproj", "{D393340F-6821-48C5-A7D7-49F4AA9FD882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{1F45F213-8F3A-46BC-8AAD-E8FE85EFB0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F45F213-8F3A-46BC-8AAD-E8FE85EFB0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F45F213-8F3A-46BC-8AAD-E8FE85EFB0AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
