@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Http.Request.Builder" Version="8.0.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Service.Application\Service.Application.csproj" />
+    </ItemGroup>
+
+</Project>
