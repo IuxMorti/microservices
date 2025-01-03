@@ -1,4 +1,6 @@
+using System.Text.Json;
 using Confluent.Kafka;
+using Confluent.SchemaRegistry.Serdes;
 using Service.Application;
 using Service.Application.Gateway;
 
@@ -15,9 +17,20 @@ internal class SmsConsumer : BackgroundService
         _config = config;
     }
 
+    public class JsonDeserialize<T>  : IDeserializer<T>
+    {
+        public T Deserialize(ReadOnlySpan<byte> data, bool isNull, SerializationContext context)
+        {
+             return JsonSerializer.Deserialize<T>(data)!;
+        }
+    }
+    
+    
     protected override Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var consumer = new ConsumerBuilder<Guid, MessageDto>(_config).Build();
+        using var consumer = new ConsumerBuilder<Ignore, MessageDto>(_config)
+            .SetValueDeserializer(new JsonDeserialize<MessageDto>())
+            .Build();
 
         consumer.Subscribe(Topics.GetTopicForType("sms"));
 
@@ -41,4 +54,9 @@ internal class SmsConsumer : BackgroundService
         }
         return Task.CompletedTask;
     }
+    
+    
+    
+    
+    
 }

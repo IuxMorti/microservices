@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Confluent.Kafka;
 namespace Service.Application.Gateway;
 public class ProducerService : INotificationProducer
@@ -11,23 +12,32 @@ public class ProducerService : INotificationProducer
         _config = config;
     }
 
+    public class JsonSerializer<T> : ISerializer<T>
+    {
+        public byte[] Serialize(T data, SerializationContext context)
+        {
+            return JsonSerializer.SerializeToUtf8Bytes(data);
+        }
+    }
+    
+    
     public async Task ProduceAsync(MessageDto message)
     {
 
-        using var producer = new ProducerBuilder<Guid, MessageDto>(_config)
+        using var producer = new ProducerBuilder<Null, MessageDto>(_config)
+            .SetValueSerializer(new JsonSerializer<MessageDto>())
             .Build();
         try
         {
             var deliveryResult = await producer
                 .ProduceAsync(topic: Topics.GetTopicForType(message.ChannelType),
-                new Message<Guid, MessageDto>
+                new Message<Null, MessageDto>
                 {
-                    Key = message.BuyerId,
                     Value = message,
                 },CancellationToken.None);
             //_logger.LogInformation($"Delivered message to {deliveryResult.Value}, Offset: {deliveryResult.Offset}");
         }
-        catch (ProduceException<Null, string> e)
+        catch (ProduceException<Null, MessageDto> e)
         {
             //_logger.LogError($"Delivery failed: {e.Error.Reason}");
         }
