@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Domain", "Service.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Notification.SmsConsumer", "Service.Notification.SmsConsumer\Service.Notification.SmsConsumer.csproj", "{D393340F-6821-48C5-A7D7-49F4AA9FD882}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Notification.Core", "Service.Notification.Core\Service.Notification.Core.csproj", "{9E24D966-52C6-4825-865E-ACE66A6AEA6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Notification.Gateway.Repeater", "Service.Notification.Gateway.Repeater\Service.Notification.Gateway.Repeater.csproj", "{723DACDB-D26A-49A5-8588-D080A720EEA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +52,13 @@ Global
 		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D393340F-6821-48C5-A7D7-49F4AA9FD882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E24D966-52C6-4825-865E-ACE66A6AEA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E24D966-52C6-4825-865E-ACE66A6AEA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E24D966-52C6-4825-865E-ACE66A6AEA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E24D966-52C6-4825-865E-ACE66A6AEA6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{723DACDB-D26A-49A5-8588-D080A720EEA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723DACDB-D26A-49A5-8588-D080A720EEA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723DACDB-D26A-49A5-8588-D080A720EEA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723DACDB-D26A-49A5-8588-D080A720EEA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

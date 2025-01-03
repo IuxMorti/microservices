@@ -11,9 +11,10 @@ public class NotificationClient: INotificationClient
     private readonly HttpClient _httpClient;
     private const string GatewayName = "notification-gateway";
     
-    public NotificationClient()
+    public NotificationClient(string? uri = null)
     {
         _httpClient = new HttpClient();
+        _httpClient.BaseAddress = new Uri(uri ?? $"http://{GatewayName}");
     }
 
     public void Dispose()
@@ -21,9 +22,23 @@ public class NotificationClient: INotificationClient
         _httpClient.Dispose();
     }
 
-    public Task SengMessage(MessageDto dto)
+    public async Task SengMessage(MessageDto dto)
     {
-        throw new NotImplementedException();
+        var request = RequestBuilder
+            .Create("api/v1/notifications", HttpMethod.Post, _httpClient)
+            .WithDataFromBodyAsJson(dto)
+            .Build();
+
+        try
+        {
+            await request.SendAsync();
+        }
+        catch (Exception e)
+        {
+            //
+        }
+        
+        
     }
 }
 

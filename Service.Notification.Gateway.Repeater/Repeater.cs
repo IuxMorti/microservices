@@ -3,17 +3,18 @@ using Service.Application;
 using Service.Domain;
 using Service.Notification.Core;
 
-namespace Service.Notification.SmsConsumer;
 
-internal class SmsConsumer : BackgroundService
+namespace Service.Notification.Gateway.Repeater;
+
+
+
+internal class Repeater : BackgroundService
 {
-    private readonly ILogger<SmsConsumer> _logger;
     private readonly ConsumerConfig _config;
     private readonly IConsumerResponseHandler _consumerResponseHandler;
 
-    public SmsConsumer(ILogger<SmsConsumer> logger, ConsumerConfig config, IConsumerResponseHandler consumerResponseHandler)
+    public Repeater(ConsumerConfig config, IConsumerResponseHandler consumerResponseHandler)
     {
-        _logger = logger;
         _config = config;
         _consumerResponseHandler = consumerResponseHandler;
     }
@@ -45,7 +46,6 @@ internal class SmsConsumer : BackgroundService
                     DispatchTime = DateTime.UtcNow
                 });
                 
-                _logger.LogInformation($"Consumed message '{consumeResult.Message.Value}' at: '{consumeResult.Offset}'");
             }
             catch (Exception)
             {

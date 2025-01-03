@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <UserSecretsId>dotnet-Service.Notification.SmsConsumer-32EB9752-75B8-4451-8688-9E6FB32F0D15</UserSecretsId>
+        <UserSecretsId>dotnet-Service.Notification.Gateway.Repeater-807AC58E-1BEA-47F2-A00F-6D2351FCA5AE</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,9 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Service.Application\Service.Application.csproj" />
       <ProjectReference Include="..\Service.Notification.Core\Service.Notification.Core.csproj" />
-      <ProjectReference Include="..\Service.Notification.Gateway\Service.Notification.Gateway.csproj" />
-      <ProjectReference Include="..\Service.Persistence\Service.Persistence.csproj" />
     </ItemGroup>
 </Project>
